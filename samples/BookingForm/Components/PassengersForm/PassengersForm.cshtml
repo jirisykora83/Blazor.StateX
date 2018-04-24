@@ -1,0 +1,16 @@
+﻿@inherits StateXComponent
+
+<div>
+	<div>Passengers</div>
+	<hr />
+	@foreach (var passenger in passengerStore.Passengers)
+	{
+		<PassengerForm Passenger="passenger" />
+	}
+</div>
+
+@functions
+{
+	[Inject, Observable]
+	private PassengerStore passengerStore { get; set; }
+}

@@ -1,0 +1,51 @@
+# Troubleshooting
+# 1. If you add a .gitignore file to an existing repo (or significantly change one), you may want 
+# to force it to act as though the new/updated .gitignore was in force the whole time. 
+## http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring
+### git rm -r --cached .
+### git add .
+### git commit -m "Fix .gitignore"
+# 2. If you get an Unsynchronized Commit error in the GitHub Windows client, you may want to try this.
+## http://stackoverflow.com/questions/8174324/github-unsynchronized-commit
+# 3. If you get "unstaged changes" "you cannot sync with unstaged changes" "please commit your changes and try again" from 
+#    Github for Windows client...
+## ?
+
+**/wwwroot/js/*.js
+**/wwwroot/lib
+**/wwwroot/css/style.css
+bower_components
+node_modules
+project.lock.json
+
+# Visual Studio build objects
+bin/
+csx/
+obj/
+rcf/
+
+# Visual Studio user-specific files
+## Useful whenever working as part of a team or on software (like open source) that others will download
+*.suo
+*.user
+.vs/config/
+.vscode/
+.vs/
+
+# Backup
+*.backup.*
+
+# NuGet
+packages/
+
+# ReSharper
+_ReSharper*/
+
+# WebStorm
+.idea/
+
+# npm log
+npm-debug.log
+
+# Code cover
+*.coverage

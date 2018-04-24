@@ -1,0 +1,28 @@
+﻿@page "/"
+@inherits StateXComponent
+
+<div class="row">
+	<div class="col-sm-8">
+		<PassengersForm />
+	</div>
+	<div class="col-sm-4">
+		<PassengersSummary />
+	</div>
+	<div class="col-sm-4 col-sm-offset-4">
+		Total passengers: @passengerStore.Passengers.Count
+	</div>
+	<div class="col-sm-4 col-sm-offset-4">
+		<button onclick="@addPassengerOnClick">Add passenger</button>
+	</div>
+</div>
+
+@functions
+{
+	[Inject, Observable]
+	private PassengerStore passengerStore { get; set; }
+
+	protected void addPassengerOnClick()
+	{
+		passengerStore.AddNewPassenger();
+	}
+}

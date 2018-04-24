@@ -1,0 +1,26 @@
+﻿@inherits StateXComponent
+
+<div>
+	<div class="form-group">
+		<label>First name</label>
+		<!-- https://github.com/aspnet/Blazor/issues/659 -->
+		<input bind="@Passenger.FirstName" placeholder="First name" />
+	</div>
+	<div class="form-group">
+		<label>Last name</label>
+		<!-- https://github.com/aspnet/Blazor/issues/659 -->
+		<input bind="@(Passenger.LastName)" placeholder="Last name" />
+	</div>
+	<div class="form-group">
+		<label>Passport or ID number</label>
+		<!-- https://github.com/aspnet/Blazor/issues/659 -->
+		<input bind="@Passenger.DocumentNumber" placeholder="Documment ID" />
+	</div>
+	<hr />
+</div>
+
+@functions
+{
+	[Observable]
+	public Passenger Passenger { get; set; }
+}

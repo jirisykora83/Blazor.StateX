@@ -1,0 +1,20 @@
+﻿@inherits StateXComponent
+
+<div>
+	<div>Passengers summary</div>
+	@foreach (var passenger in passengerStore.Passengers)
+	{
+		<PassengerSummaryRow Passenger="passenger" OnRemove="onRemovePassenger" />
+	}
+</div>
+
+@functions
+{
+	[Inject, Observable]
+	private PassengerStore passengerStore { get; set; }
+
+	protected void onRemovePassenger(Passenger passenger)
+	{
+		passengerStore.RemovePassenger(passenger);
+	}
+}

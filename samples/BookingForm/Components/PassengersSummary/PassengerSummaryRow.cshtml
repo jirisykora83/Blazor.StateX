@@ -1,0 +1,22 @@
+﻿@inherits StateXComponent
+
+<div>
+	@(!string.IsNullOrWhiteSpace(Passenger.FullName) ? Passenger.FullName : "NOT FILL")
+	<button onclick="@onRemoveClick">Remove</button>
+</div>
+
+@functions
+{
+	[Observable(nameof(Models.Passenger.FullName))]
+	public Passenger Passenger { get; set; }
+
+	public Action<Passenger> OnRemove { get; set; }
+
+	[Inject]
+	private PassengerStore passengerStore { get; set; }
+
+	protected void onRemoveClick()
+	{
+		OnRemove?.Invoke(Passenger);
+	}
+}
